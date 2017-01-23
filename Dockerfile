@@ -9,6 +9,9 @@ RUN apt-get install -y zlib1g-dev
 RUN apt-get install -y libjpeg-dev 
 RUN apt-get install -y xvfb libav-tools xorg-dev python-opengl
 RUN apt-get -y install swig3.0
+RUN ln -s /usr/bin/swig3.0 /usr/bin/swig
+
+USER main
 
 RUN pip install --upgrade sklearn
 RUN mkdir ~/gym2 && cd ~/gym2 && git clone https://github.com/openai/gym.git && cd gym && pip install -e .[box2d]
